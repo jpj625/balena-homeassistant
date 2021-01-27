@@ -27,3 +27,11 @@ services:
       - 'config:/hass-config'
     environment:
       - HC_BASEPATH=/hass-config
+  heimdall:
+    image: ghcr.io/linuxserver/heimdall
+    volumes:
+      - 'config:/heimdall-config'
+    ports:
+      - 88:80
+      - 443:443
+    restart: unless-stopped
